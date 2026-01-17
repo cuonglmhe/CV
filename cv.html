@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lê Mạnh Cường - Business Analyst & QC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb', // Blue
+                        secondary: '#0f172a', // Dark Slate
+                        accent: '#f59e0b', // Amber
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        /* Thêm animation bị thiếu */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animate-fade-in-up {
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-slate-200 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="h-8 w-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg">C</span>
+                    <span class="font-bold text-xl text-secondary">Lê Mạnh Cường</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-slate-600 hover:text-primary font-medium transition-colors">Trang chủ</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition-colors">Giới thiệu</a>
+                    <a href="#skills" class="text-slate-600 hover:text-primary font-medium transition-colors">Kỹ năng</a>
+                    <a href="#experience" class="text-slate-600 hover:text-primary font-medium transition-colors">Kinh nghiệm</a>
+                    <a href="#portfolio" class="text-slate-600 hover:text-primary font-medium transition-colors">Dự án</a>
+                    <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30">Liên hệ</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Trang chủ</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Giới thiệu</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Kỹ năng</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Kinh nghiệm</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Dự án</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-blue-50">Liên hệ ngay</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-40 pb-12 md:pt-32 relative overflow-hidden bg-white">
+        <!-- Background Split for Desktop -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50/30 skew-x-12 transform origin-top-right hidden lg:block"></div>
+        
+        <!-- Blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-amber-100 opacity-50 blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                
+                <!-- Cột 1: Nội dung (Text) -->
+                <!-- Thêm relative z-10 để đảm bảo chữ nổi lên trên nền -->
+                <div class="space-y-6 animate-fade-in-up order-2 lg:order-1 text-center lg:text-left relative z-10">
+                    
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-secondary leading-snug">
+                        Ứng tuyển vị trí <br class="hidden md:inline">
+                        <span class="text-primary">Business Analyst</span> & <span class="text-accent">Tester</span>
+                    </h1>
+                    
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed">
+                        Mục tiêu nghề nghiệp của tôi là trở thành chuyên viên phân tích nghiệp vụ (Business Analyst – BA) với kỹ năng linh hoạt và hiểu biết toàn diện về quy trình phát triển dự án. Tôi có khả năng phân tích, làm rõ yêu cầu nghiệp vụ và phối hợp hiệu quả với các bên liên quan. Bên cạnh đó, tôi tham gia kiểm thử phần mềm (testing/QA) nhằm đảm bảo yêu cầu được triển khai đúng, nâng cao chất lượng sản phẩm và hiệu quả dự án.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start">
+                        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 flex items-center gap-2">
+                            <i class="far fa-paper-plane"></i> Tuyển dụng tôi
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Ảnh chân dung -->
+                <!-- Trên Mobile: Hiện TRƯỚC (order-1) để thấy ngay | Trên Desktop: Hiện SAU (order-2) -->
+                <div class="relative flex justify-center lg:justify-end order-1 lg:order-2 h-full pt-4 lg:pt-0">
+                    <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-[480px] lg:h-[550px]">
+                        <!-- Background Shape -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-200 to-amber-100 rounded-[2rem] rotate-3 transform transition-transform duration-500 hover:rotate-6"></div>
+                        
+                        <!-- CHỖ ĐỂ ẢNH CỦA BẠN: Hãy thay link ảnh thật vào đây -->
+                        <img src="./image/cuong.jpg" 
+                             alt="Ảnh chân dung Lê Mạnh Cường" 
+                             class="relative z-10 w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white transform transition-transform duration-500 hover:-translate-y-2 bg-white">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section (Value Proposition) -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header removed -->
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Hiểu đúng yêu cầu</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Với nền tảng BA, tôi khơi gợi (elicit) và tài liệu hóa yêu cầu chính xác. Tester mindset giúp tôi phát hiện các "lỗ hổng" logic ngay từ khi yêu cầu còn nằm trên giấy.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-amber-100 text-accent rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Chất lượng toàn diện</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Viết Test Case và Test Plan song song với việc phân tích. Giảm thiểu chi phí sửa lỗi (Bug fixing cost) và đảm bảo sản phẩm bàn giao đúng như mong đợi của Stakeholders.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Giao tiếp hiệu quả</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Là cầu nối ngôn ngữ giữa Client (nghiệp vụ) và Dev Team (kỹ thuật). Hỗ trợ UAT mượt mà và training người dùng cuối hiệu quả.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- BA Skills -->
+                <div>
+                    <h3 class="flex items-center gap-3 text-2xl font-bold text-secondary mb-6">
+                        <i class="fas fa-laptop-code text-primary"></i> Business Analysis
+                    </h3>
+                    <div class="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">Quy trình & Tài liệu (UML, BPMN, SRS)</span>
+                                <span class="text-primary font-bold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">Wireframe/Prototype (Figma, Axure)</span>
+                                <span class="text-primary font-bold">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">SQL & Data Analysis</span>
+                                <span class="text-primary font-bold">75%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-100">Jira/Confluence</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-100">Agile/Scrum</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-100">User Stories</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing Skills -->
+                <div>
+                    <h3 class="flex items-center gap-3 text-2xl font-bold text-secondary mb-6">
+                        <i class="fas fa-check-double text-accent"></i> Software Testing
+                    </h3>
+                    <div class="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">Manual Testing (Black-box)</span>
+                                <span class="text-accent font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-accent h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">Test theo luồng Code (White/Gray-box)</span>
+                                <span class="text-accent font-bold">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-accent h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Đọc hiểu logic code để viết Test Case bao phủ các nhánh điều kiện.</p>
+                        </div>
+                        <!-- Skill Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">SQL & Database Check</span>
+                                <span class="text-accent font-bold">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-accent h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs rounded-full border border-amber-100">Test Case Design</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs rounded-full border border-amber-100">Logic Verification</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs rounded-full border border-amber-100">Bug Tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-secondary text-center mb-12">Hành trình sự nghiệp</h2>
+            
+            <div class="relative border-l-4 border-slate-200 ml-4 md:ml-0 space-y-12">
+                
+                <!-- Job 1 -->
+                <div class="relative md:pl-12 pl-8">
+                    <div class="absolute -left-[10px] md:-left-[10px] top-0 h-6 w-6 rounded-full bg-primary border-4 border-white shadow-md"></div>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 hover:shadow-lg transition-shadow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-secondary">Thực tập sinh</h3>
+                                <p class="text-primary font-medium">BKAV</p>
+                            </div>
+                            <span class="text-sm text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200 mt-2 md:mt-0 inline-block">07/2024 – 12/2024</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2">
+                            <li>Tham gia hỗ trợ kiểm thử hệ thống phần mềm, phát hiện và báo cáo lỗi nhằm đảm bảo chất lượng sản phẩm.</li>
+                            <li>Hỗ trợ hướng dẫn và giải đáp cho khách hàng trong quá trình sử dụng sản phẩm tại Cục Sở hữu Trí tuệ, góp phần nâng cao trải nghiệm người dùng.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Projects -->
+    <section id="portfolio" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-secondary text-center mb-12">Dự án tiêu biểu</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all group flex flex-col h-full">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                         <img src="./image/doan.png" alt="QR Code Ordering Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-orange-100 text-orange-800 rounded">F&B</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded">Web App</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">HỆ THỐNG ĐẶT MÓN ĂN QUA QR CODE TẠI BÀN</h3>
+                        <p class="text-slate-600 text-sm mb-4">Hệ thống giúp khách hàng quét mã QR để xem menu, gọi món và quản lý nhân sự.</p>
+                        
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-lg text-sm mt-auto">
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-pen-nib text-primary mt-1"></i>
+                                <span><strong>Vai trò BA:</strong> Khảo sát quy trình phục vụ tại nhà hàng, vẽ luồng đặt món (User Flow), viết SRS.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-bug text-accent mt-1"></i>
+                                <span><strong>Vai trò Test:</strong> Test tính năng quét QR trên nhiều thiết bị mobile, kiểm tra tính chính xác của hóa đơn thanh toán.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 2 -->
+                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all group flex flex-col h-full">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <!-- Changed Image to Real Estate/Housing -->
+                        <img src="./image/trohola.jpg" alt="Tro Hoa Lac Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                   </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-purple-100 text-purple-800 rounded">Real Estate</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded">Web Platform</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">TRỌ HÒA LẠC</h3>
+                        <p class="text-slate-600 text-sm mb-4">Nền tảng kết nối sinh viên và chủ trọ tại khu vực Hòa Lạc, hỗ trợ tìm kiếm và quản lý phòng.</p>
+                        
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-lg text-sm mt-auto">
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-laptop-code text-primary mt-1"></i>
+                                <span><strong>Kỹ thuật:</strong> Lập trình giao diện (Frontend) và thực hiện kiểm thử hệ thống.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-handshake text-green-600 mt-1"></i>
+                                <span><strong>Kinh doanh:</strong> Khảo sát thị trường, trực tiếp đàm phán và ký kết hợp đồng với khách hàng.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all group flex flex-col h-full">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="./image/anh cuoi(9).JPG" alt="Medical Robot Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                   </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded">IoT & AI</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded">Robotics</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Robot vận chuyển y tế tự hành ứng dụng IoT và AI điều hướng thông minh</h3>
+                        <p class="text-slate-600 text-sm mb-4">Robot tự hành hỗ trợ vận chuyển thuốc và vật tư y tế, sử dụng AI để điều hướng và tránh vật cản.</p>
+                        
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-lg text-sm mt-auto">
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-user-tie text-primary mt-1"></i>
+                                <span><strong>Vai trò BA & Leader:</strong> Khảo sát thực tế, liên kết với bệnh viện để triển khai dự án, xây dựng tài liệu và quản lý đội nhóm.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fas fa-bug text-accent mt-1"></i>
+                                <span><strong>Vai trò Test:</strong> Kiểm thử cảm biến va chạm, test logic điều hướng của AI và độ trễ tín hiệu IoT.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification & Education -->
+    <section class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             <h2 class="text-2xl font-bold text-secondary mb-8">Chứng chỉ & Học vấn</h2>
+             
+             <div class="flex flex-wrap justify-center gap-4">
+                 
+                 <!-- Education -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                    <i class="fas fa-graduation-cap text-primary text-2xl"></i>
+                    <div class="text-left">
+                        <p class="font-bold text-secondary">Đại Học FPT</p>
+                        <p class="text-xs text-slate-500">Chuyên ngành Kỹ thuật phần mềm</p>
+                        <p class="text-xs text-primary font-semibold mt-1">GPA: 7.07</p>
+                    </div>
+                </div>
+
+                <!-- Cert 1 -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                     <i class="fas fa-sync-alt text-amber-500 text-2xl"></i>
+                     <div class="text-left">
+                         <p class="font-bold text-secondary text-sm">Software Development Lifecycle</p>
+                         <p class="text-xs text-slate-500">Coursera</p>
+                     </div>
+                 </div>
+
+                 <!-- Cert 2 -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                     <i class="fas fa-user-shield text-green-600 text-2xl"></i>
+                     <div class="text-left">
+                         <p class="font-bold text-secondary text-sm">Certified Ethical Emerging Technologist</p>
+                         <p class="text-xs text-slate-500">CertNexus - Coursera</p>
+                     </div>
+                 </div>
+
+                 <!-- Cert 3 -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                     <i class="fas fa-laptop-code text-purple-500 text-2xl"></i>
+                     <div class="text-left">
+                         <p class="font-bold text-secondary text-sm">Web Design for Everybody</p>
+                         <p class="text-xs text-slate-500">Basics of Web Development & Coding</p>
+                     </div>
+                 </div>
+
+                 <!-- Cert 4 -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                     <i class="fas fa-network-wired text-cyan-600 text-2xl"></i>
+                     <div class="text-left">
+                         <p class="font-bold text-secondary text-sm">Computer Communications</p>
+                         <p class="text-xs text-slate-500">Coursera</p>
+                     </div>
+                 </div>
+
+                 <!-- Cert 5 -->
+                 <div class="flex items-center gap-3 px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-all min-w-[300px]">
+                     <i class="fas fa-book-reader text-rose-500 text-2xl"></i>
+                     <div class="text-left">
+                         <p class="font-bold text-secondary text-sm">Academic Skills for University Success</p>
+                         <p class="text-xs text-slate-500">Coursera</p>
+                     </div>
+                 </div>
+
+             </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary opacity-10 pattern-grid"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">Thông tin liên hệ</h2>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    
+                    <!-- Email -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg border border-slate-700">
+                             <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-300 mb-1">Email</h3>
+                        <p class="text-white font-medium break-all">cuonglmhe172701@fpt.edu.vn</p>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg border border-slate-700">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-300 mb-1">Điện thoại</h3>
+                        <p class="text-white font-medium">0865906672</p>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg border border-slate-700">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-300 mb-1">Địa chỉ</h3>
+                        <p class="text-white font-medium">Dong Anh District - Ha Noi</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer removed -->
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
